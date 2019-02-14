@@ -135,7 +135,7 @@ class Net {
       this.rewrite(this.redex.pop());
       rewrite_count += 1;
     }
-    return rewrite_count;
+    return {rewrites: rewrite_count};
   }
 
   // Rewrites active pairs lazily. Lazy reductions avoid wasting work and
@@ -163,7 +163,7 @@ class Net {
         next = this.enter_port(new Pointer(next.addr, 0));
       }
     }
-    return rwts;
+    return {rewrites: rwts};
   }
 
   to_string() {
